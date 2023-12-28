@@ -19,13 +19,18 @@ void prime_factorization(int number)
 {
     for (int i = 2; i * i <= number; ++i)
     {
+        int exponment = 0;
         while (number % i == 0)
         {
-            printf("%d ", i);
+            ++exponment;
             number /= i;
         }
+        printf("%d^%d", i, exponment);
+
+        if (number != 1)
+            printf(" * ");
     }
 
     if (number > 1)
-        printf("%d", number);
+        printf("%d^1", number);
 }
