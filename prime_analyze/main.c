@@ -1,23 +1,25 @@
 #include <stdio.h>
 
-void prime_factorization(int);
+typedef unsigned long long ull;
+
+void prime_factorization(ull);
 
 int main()
 {
-    int number;
+    ull number;
     
     printf("Enter a positive integer: ");
-    scanf("%d", &number);
+    scanf("%llu", &number);
 
-    printf("Prime factors of %d are: ", number);
+    printf("Prime factors of llu are: ", number);
     prime_factorization(number);
 
     return 0;
 }
 
-void prime_factorization(int number)
+void prime_factorization(ull number)
 {
-    for (int i = 2; i * i <= number; ++i)
+    for (ull i = 2; i * i <= number; ++i)
     {
         int exponment = 0;
         while (number % i == 0)
@@ -25,12 +27,12 @@ void prime_factorization(int number)
             ++exponment;
             number /= i;
         }
-        printf("%d^%d", i, exponment);
+        printf("%llu^%llu", i, exponment);
 
         if (number != 1)
             printf(" * ");
     }
 
     if (number > 1)
-        printf("%d^1", number);
+        printf("%llu^1", number);
 }
