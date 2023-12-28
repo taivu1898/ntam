@@ -19,7 +19,7 @@ int main()
 
 void prime_factorization(ull number)
 {
-    for (ull i = 2; i * i <= number; ++i)
+    for (int i = 2; i * i <= number; ++i)
     {
         int exponment = 0;
         while (number % i == 0)
@@ -27,7 +27,7 @@ void prime_factorization(ull number)
             ++exponment;
             number /= i;
         }
-        printf("%llu^%llu", i, exponment);
+        printf("%d^%d", i, exponment);
 
         if (number != 1)
             printf(" * ");
