@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 typedef unsigned long long ull;
 
@@ -11,7 +12,7 @@ int main()
     printf("Enter a positive integer: ");
     scanf("%llu", &number);
 
-    printf("Prime factors of llu are: ", number);
+    printf("Prime factors of %llu are: ", number);
     prime_factorization(number);
 
     return 0;
@@ -19,18 +20,21 @@ int main()
 
 void prime_factorization(ull number)
 {
-    for (int i = 2; i * i <= number; ++i)
+    for (int i = 2; i <= sqrt(number); ++i)
     {
-        int exponment = 0;
-        while (number % i == 0)
+        if (number % i == 0)
         {
-            ++exponment;
-            number /= i;
-        }
-        printf("%d^%d", i, exponment);
+            int exponment = 0;
+            while (number % i == 0)
+            {
+                ++exponment;
+                number /= i;
+            }
+            printf("%d^%d", i, exponment);
 
-        if (number != 1)
-            printf(" * ");
+            if (number != 1)
+                printf(" * ");
+        }
     }
 
     if (number > 1)
